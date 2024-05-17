@@ -1,11 +1,28 @@
 import os
 
-from langchain_community.document_loaders import PyPDFLoader
 from langchain_core.callbacks import StreamingStdOutCallbackHandler, CallbackManager
+from langchain_community.chat_models.zhipuai import ChatZhipuAI
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+from langchain import hub
+from langchain_core.runnables import RunnablePassthrough
 
 from src.init.property import Property
-from langchain_community.chat_models.zhipuai import ChatZhipuAI
-from langchain_core.prompts import ChatPromptTemplate
+from src.base.embedding import SentenceEmbedding
+
+# 初始化prompt工程
+_prompt = {
+    'prompt_1': ChatPromptTemplate.from_template(
+        """你是问答任务的助手。使用以下检索到的上下文来回答问题。如果你不知道答案，就说你不知道。最多使用三个句子并保持答案简洁。
+
+        {context}
+
+        Question: {question}
+
+        Helpful Answer:"""
+    ),
+    'prompt_2': hub.pull("rlm/rag-prompt")
+}
 
 
 def format_docs(docs):
@@ -16,14 +33,8 @@ class RAG:
     # 初始化ZHIPU API KEY
     os.environ["ZHIPUAI_API_KEY"] = Property.get_property("API_KEY")
 
-    # 初始化prompt工程
-    __prompt = ChatPromptTemplate.from_messages([
-        ("system", "You are a world class technical documentation writer."),
-        ("user", "{input}")
-    ])
-
     # 初始化模型
-    __llm = ChatZhipuAI(
+    _llm = ChatZhipuAI(
         temperature=0.95,
         model="glm-4"
     )
@@ -35,22 +46,38 @@ class RAG:
         callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]),
     )
 
-    # 构建langchain
-    chain = __prompt | __llm
-
     def __init__(self, file_path: str):
+        try:
+            global _prompt
+            self._example_prompt = _prompt["prompt_1"]
+        except NameError:
+            pass
         self.__file_path = file_path
-        loader = PyPDFLoader(self.__file_path)
-        file = loader.load()
+        self.__sentenceEmbedding = SentenceEmbedding(file_path)
+        self._retriever = self.__sentenceEmbedding.get_vectorstore().as_retriever(search_type="similarity",
+                                                                                  search_kwargs={"k": 5})
 
-    def get_answer(self, message) -> str:
-        return RAG.__llm.invoke(message).content
+        try:
+            self.__rag_chain = (
+                    {"context": self._retriever | format_docs, "question": RunnablePassthrough()}
+                    | self._example_prompt
+                    | RAG._llm
+                    | StrOutputParser()
+            )
+        except AttributeError:
+            pass
 
-    def get_streaming_chat(self, message) -> str:
-        return RAG.__streaming_chat.invoke(message).content
+    def get_chat(self, message: str):
+        for chunk in self.__rag_chain.stream(message):
+            print(chunk, end="", flush=True)
+
+    def select_prompt(self, prompt_index: int = 1):
+        global _prompt
+        prompt_name = "prompt_" + str(prompt_index)
+        self._example_prompt = _prompt[prompt_name]
 
 
 if __name__ == '__main__':
     r = RAG("C:\\Users\\16922\\Desktop\\文档1.pdf")
-    print(r.get_streaming_chat("hello"))
-    print(r.get_streaming_chat("what can you do"))
+    r.select_prompt(2)
+    r.get_chat("what can Multimodal Agent AI systems do?")

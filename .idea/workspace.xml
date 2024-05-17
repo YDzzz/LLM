@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db7f4434-7cc2-4790-b42e-92159334a8b4" name="Changes" comment="second commit" />
+    <list default="true" id="db7f4434-7cc2-4790-b42e-92159334a8b4" name="Changes" comment="complete RAG, History RAG">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serve/RAG.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serve/RAG.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +30,20 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;YDzzz&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="c877182e-149b-4367-a384-4c094fd3c76e" />
+        <option name="url" value="https://github.com/YDzzz/LLM.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -42,11 +60,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.HistoryRAG.executor": "Run",
     "Python.RAG.executor": "Run",
     "Python.embedding.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "91444e75",
+    "com.google.cloudcode.ide_session_index": "20240518_0001",
+    "git-widget-placeholder": "detached",
     "last_opened_file_path": "G:/code/py/LLM",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -84,6 +104,12 @@
       <workItem from="1715345875476" duration="11056000" />
       <workItem from="1715441734127" duration="1201000" />
       <workItem from="1715516642242" duration="6557000" />
+      <workItem from="1715878258483" duration="36000" />
+      <workItem from="1715878326308" duration="244000" />
+      <workItem from="1715878583964" duration="209000" />
+      <workItem from="1715935000078" duration="18704000" />
+      <workItem from="1715964027274" duration="201000" />
+      <workItem from="1715964238142" duration="2613000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -109,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715530309702</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="complete RAG, History RAG">
+      <option name="closed" value="true" />
+      <created>1715963552332</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715963552332</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,7 +160,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="detached" />
                       </list>
                     </value>
                   </entry>
@@ -141,10 +175,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="second commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="second commit" />
+    <MESSAGE value="complete RAG, History RAG" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete RAG, History RAG" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/LLM$RAG.coverage" NAME="RAG Coverage Results" MODIFIED="1715346172432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/serve" />
-    <SUITE FILE_PATH="coverage/LLM$embedding.coverage" NAME="embedding Coverage Results" MODIFIED="1715354020292" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/serve" />
+    <SUITE FILE_PATH="coverage/LLM$RAG.coverage" NAME="RAG Coverage Results" MODIFIED="1715966784292" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/serve" />
+    <SUITE FILE_PATH="coverage/LLM$embedding.coverage" NAME="embedding Coverage Results" MODIFIED="1715952325378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/serve" />
+    <SUITE FILE_PATH="coverage/LLM$HistoryRAG.coverage" NAME="HistoryRAG Coverage Results" MODIFIED="1715963407636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/serve" />
   </component>
 </project>
