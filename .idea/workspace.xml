@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="db7f4434-7cc2-4790-b42e-92159334a8b4" name="Changes" comment="complete RAG, History RAG">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serve/RAG.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serve/RAG.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serve/HistoryRAG.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serve/HistoryRAG.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,25 +57,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.HistoryRAG.executor": "Run",
-    "Python.RAG.executor": "Run",
-    "Python.embedding.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.google.cloudcode.ide_session_index": "20240518_0001",
-    "git-widget-placeholder": "detached",
-    "last_opened_file_path": "G:/code/py/LLM",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.HistoryRAG.executor&quot;: &quot;Run&quot;,
+    &quot;Python.RAG.executor&quot;: &quot;Run&quot;,
+    &quot;Python.embedding.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.google.cloudcode.ide_session_index&quot;: &quot;20240519_0002&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;detached&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/code/py/LLM&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\code\py\LLM\src\base" />
@@ -110,6 +109,11 @@
       <workItem from="1715935000078" duration="18704000" />
       <workItem from="1715964027274" duration="201000" />
       <workItem from="1715964238142" duration="2613000" />
+      <workItem from="1715966887877" duration="22000" />
+      <workItem from="1716089691296" duration="2747000" />
+      <workItem from="1716101749458" duration="1744000" />
+      <workItem from="1716103616899" duration="1362000" />
+      <workItem from="1716718682372" duration="7000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -143,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715963552332</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="complete RAG, History RAG">
+      <option name="closed" value="true" />
+      <created>1715966892912</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715966892912</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +193,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/LLM$RAG.coverage" NAME="RAG Coverage Results" MODIFIED="1715966784292" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/serve" />
     <SUITE FILE_PATH="coverage/LLM$embedding.coverage" NAME="embedding Coverage Results" MODIFIED="1715952325378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/serve" />
-    <SUITE FILE_PATH="coverage/LLM$HistoryRAG.coverage" NAME="HistoryRAG Coverage Results" MODIFIED="1715963407636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/serve" />
+    <SUITE FILE_PATH="coverage/LLM$HistoryRAG.coverage" NAME="HistoryRAG Coverage Results" MODIFIED="1716104864368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/serve" />
   </component>
 </project>

@@ -60,7 +60,18 @@ class HistoryRAG(RAG):
 
 
 if __name__ == '__main__':
-    hr = HistoryRAG("C:\\Users\\16922\\Desktop\\文档1.pdf")
-    print(hr.get_chat("what can Multimodal Agent AI systems do?"))
-    print(hr.get_chat(input()))
+    print("welcome to use RAG question, input exit() to end")
+    try:
+        file_path = input("please input file path:").strip('"')
+        if not len(file_path):
+            raise ValueError("path not be empty")
+    except ValueError:
+        print("arise error：" + repr(ValueError))
+    finally:
+        hr = HistoryRAG(file_path)
+        while True:
+            chat = input("user:")
+            if chat == "exit()":
+                break
+            print("system:" + hr.get_chat(chat))
 
